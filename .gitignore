@@ -123,6 +123,8 @@ nbproject
 *.iml
 .vscode
 .node_history
+.history
+.tmp
 dump.rdb
 
 npm-debug.log
