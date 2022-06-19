@@ -21,6 +21,12 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
+  //***********Users Route***********
+
+  'GET /v1/users/:id?': 'UsersApiController.allUser',
+  'POST /v1/users': 'UsersApiController.createUser',
+  'PATCH /v1/users/:id': 'UsersApiController.updateUser',
+  'DELETE /v1/users/:id': 'UsersApiController.deleteUser',
 
   /***************************************************************************
   *                                                                          *
