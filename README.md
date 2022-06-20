@@ -11,7 +11,7 @@ a [Sails v1](https://sailsjs.com) application
 + [Community support options](https://sailsjs.com/support)
 + [Professional / enterprise options](https://sailsjs.com/enterprise)
 
-
+### --------------------------SUPADU TEST--------------------------- ###
 ### Developer Comments ###
 - Install on local server
 - Git Clone Repo (Master branch)
@@ -31,10 +31,10 @@ a [Sails v1](https://sailsjs.com) application
     `node_modules/mocha/bin/mocha.js test/UsersApi.test.js`
 
 ### Important file locations For code review
-/api/models
-/api/controllers
-/config/routes.js
-/config/datastores.js
+- /api/models
+- /api/controllers
+- /config/routes.js
+- /config/datastores.js
 
 ### MYSQL Version ###
 MYSQL - 5.0.12
