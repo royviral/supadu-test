@@ -12,45 +12,44 @@ const regForEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 module.exports = {
     // Create user
     createUser: async function (req, res) {
+
         try {
             var params = req.allParams()
             var errorMessage = ''
 
             // Input validation start 
-            if (!params.email || !params.firstName || !params.lastName) {
-                return res.status(400).send('Parameter missing. Kindly check typo mistake.')
-            }
-            var userEmail = params.email.trim()
-            var firstName = params.firstName.trim()
-            var lastName = params.lastName.trim()
-            if (typeof userEmail === undefined || userEmail === null || !regForEmail.test(userEmail)) {
+            if (typeof params.email === undefined || params.email === null || !regForEmail.test(params.email)) {
                 errorMessage = errorMessage + 'Email is required.<br>'
             }
-            if (typeof firstName === undefined || firstName === null || !regForName.test(firstName)) {
+            if (typeof params.firstName === undefined || params.firstName === null || !regForName.test(params.firstName)) {
                 errorMessage = errorMessage + 'First name only accept charecters.<br>'
             }
-            if (typeof lastName === undefined || lastName === null || !regForName.test(lastName)) {
+            if (typeof params.lastName === undefined || params.lastName === null || !regForName.test(params.lastName)) {
                 errorMessage = errorMessage + 'Last name only accept charecters.'
             }
+
             // Input validation end 
 
-            if (errorMessage !== '') {
+            if (errorMessage != '') {
                 return res.status(400).send(errorMessage)
-            } else {
-
-                // User create start
-                var data = {
-                    userEmail: userEmail,
-                    firstName: firstName,
-                    lastName: lastName
-                }
-                var result = await UsersApi.create(data).fetch()
-
-                // User create end
-                if (result) {
-                    return res.json(result)
-                }
             }
+            let userEmail = params.email.trim()
+            let firstName = params.firstName.trim()
+            let lastName = params.lastName.trim()
+
+            // User create start
+
+            var result = await UsersApi.create({
+                userEmail: userEmail,
+                firstName: firstName,
+                lastName: lastName
+            }).fetch()
+
+            // User create end
+            if (result) {
+                return res.json(result)
+            }
+
         } catch (error) {
             return res.status(400).send(error)
         }
@@ -59,6 +58,7 @@ module.exports = {
     },
     // udpate user
     updateUser: async function (req, res) {
+
         try {
             var params = req.allParams()
             var userId = params.id
