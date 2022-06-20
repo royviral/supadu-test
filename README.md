@@ -17,7 +17,7 @@ a [Sails v1](https://sailsjs.com) application
 - Git Clone Repo (Master branch)
 - Install Node Packages
 - Change Database Creadetials in /config/datastore.js file
-- Run Sails lift (Default port is 1337 - Dev mode)(Database table auto migration will be done automatic)
+- Run `Sails lift` (Default port is 1337 - Dev mode)(Database table auto migration will be done automatic)
 - Postman collaction (v 2.1) is attached in root directory
 - End Points
     - POST /v1/users (Create user)
