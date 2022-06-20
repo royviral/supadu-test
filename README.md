@@ -28,7 +28,7 @@ a [Sails v1](https://sailsjs.com) application
 
 - Unit Test File located at test/UsersApi.test.js
 - To run Unit Test run below command from root directory 
-    node_modules/mocha/bin/mocha.js test/UsersApi.test.js
+    `node_modules/mocha/bin/mocha.js test/UsersApi.test.js`
 
 ### Important file locations For code review
 /api/models
