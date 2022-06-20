@@ -12,9 +12,34 @@ a [Sails v1](https://sailsjs.com) application
 + [Professional / enterprise options](https://sailsjs.com/enterprise)
 
 
-### Version info
+### Developer Comments ###
+- Install on local server
+- Git Clone Repo
+- Install Node Packages
+- Change Database Creadetials in /config/datastore.js file
+- Run Sails lift (Default port is 1337 - Dev mode)(Database table auto migration will be done automatic)
+- Postman collaction is attached in root directory
+- End Points
+    - POST /v1/users (Create user)
+    - GET /v1/users (Get all users)
+    - GET /v1/users/1 (Get user with id 1)
+    - PATCH /v1/users/1 (update user with id 1)
+    - DELETE /v1/users/1 (delete user with id 1)
 
-This app was originally generated on Sun Jun 19 2022 15:51:06 GMT+0100 (British Summer Time) using Sails v1.2.3.
+- Unit Test File located at test/UsersApi.test.js
+- To run Unit Test run below command from root directory 
+    node_modules/mocha/bin/mocha.js test/UsersApi.test.js
+
+### Important file locations For code review
+/api/models
+/api/controllers
+/config/routes.js
+/config/datastores.js
+
+### MYSQL Version ###
+MYSQL - 5.0.12
+Db Collection - UTF8_general_ci
+
 
 <!-- Internally, Sails used [`sails-generate@1.16.13`](https://github.com/balderdashy/sails-generate/tree/v1.16.13/lib/core-generators/new). -->
 
