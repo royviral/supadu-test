@@ -12,24 +12,25 @@ describe('Mocha Unit Test - Users API', function () {
                 .set("Accept", "application/json")
                 .expect(200, done);
         });
-        it('Create User - Wrong email will give 404 error', function (done) {
+
+        it('Create User - will create user successfully', function (done) {
             supertest
-                .post('/v1/users')
-                .send({ firstName: 'test', lastName: 'test', email: 'test.test' })
-                .expect(404, done)
+                .post('v1/users')
+                .send({ firstName: 'test', lastName: 'test', email: 'viral@test.com' })
+                .expect(200, done)
 
         });
         it('Update User - without id it will give 404 error', function (done) {
             supertest
-                .patch('/v1/users')
-                .send({ firstName: 'test', lastName: 'test', email: 'test@test.com' })
-                .expect(404, done)
+                .patch('v1/users')
+                .send({ id: '1', firstName: 'test', lastName: 'test', email: 'test@test.com' })
+                .expect(200, done)
         });
         it('Delete User - send wrong id and it will give 404 error', function (done) {
             supertest
-                .delete('/v1/users')
-                .send({ id: '2', })
-                .expect(404, done)
+                .delete('v1/users')
+                .send({ id: '1', })
+                .expect(200, done)
         });
     });
 
